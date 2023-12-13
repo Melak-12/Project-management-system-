@@ -15,12 +15,13 @@ const LoginPage = () => {
     console.log('Success:', values);
     try {
       setLoading(true)
-      await axios.post('http://localhost:9000/api/users/login', values).then(response => {
+      await axios.post('https://pmsbackend-orpin.vercel.app/api/users/login', values).then(response => {
         console.warn('API Response login data:', response.data);
         localStorage.setItem('email', response.data.email);
         localStorage.setItem('name', response.data.name);
         localStorage.setItem('isAdmin', response.data.isAdmin);
         console.warn(' is admin:', response.data.isAdmin);
+        alert('logged')
 
       })
         .catch(error => {

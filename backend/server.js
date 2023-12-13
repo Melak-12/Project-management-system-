@@ -11,7 +11,8 @@ dotenv.config()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({ origin: 'http://localhost:3001' }));
+// app.use(cors({ origin: 'http://localhost:3001' }));
+app.use(cors({ origin:'https://projectmgmtsystem.vercel.app' }));
 const PORT = process.env.PORT || 5000;
 connectDb()
 
