@@ -47,7 +47,7 @@ const UserTasks = ({ proid, projectTasks }) => {
     const sendStatus = async (status, taskId) => {
         try {
             setLoading(true)
-            await axios.put(`http://localhost:9000/api/tasks/${taskId}`, { status: status }).then(response => {
+            await axios.put(`https://pmsbackend-orpin.vercel.app/api/tasks/${taskId}`, { status: status }).then(response => {
                 console.warn('update stutus:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())

@@ -24,7 +24,7 @@ const AddTask = () => {
 
         try {
             setLoading(true)
-            await axios.post('http://localhost:9000/api/tasks/create/', updatedValues).then(response => {
+            await axios.post('https://pmsbackend-orpin.vercel.app/api/tasks/create/', updatedValues).then(response => {
                 setSuccessMessage('Task added successfully!');
                 console.warn('API Response add data:', response.data);
                 dispatch(fetchTaskData())

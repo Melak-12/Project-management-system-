@@ -22,7 +22,7 @@ const RegisterPage = () => {
 
         try {
             setLoading(true)
-            await axios.post('http://localhost:9000/api/users/', updatedValues).then(response => {
+            await axios.post('https://pmsbackend-orpin.vercel.app/api/users/', updatedValues).then(response => {
                 console.warn('API Response add user:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())

@@ -24,7 +24,7 @@ const AllTasks = ({ proid, projectTasks }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:9000/api/users/getme');
+                const response = await axios.get('https://pmsbackend-orpin.vercel.app/api/users/getme');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -47,7 +47,7 @@ const AllTasks = ({ proid, projectTasks }) => {
     const assignTask = async (userId, taskId) => {
         try {
             setLoading(true)
-            const response = await axios.post('http://localhost:9000/api/users/asigntasks', {
+            const response = await axios.post('https://pmsbackend-orpin.vercel.app/api/users/asigntasks', {
                 userId,
                 taskId,
             });
@@ -86,7 +86,7 @@ const AllTasks = ({ proid, projectTasks }) => {
 
         try {
             setLoading(true)
-            await axios.delete(`http://localhost:9000/api/tasks/${id}`).then(response => {
+            await axios.delete(`https://pmsbackend-orpin.vercel.app/api/tasks/${id}`).then(response => {
                 console.warn('API delete data:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())
@@ -121,7 +121,7 @@ const AllTasks = ({ proid, projectTasks }) => {
     const sendStatus = async (status, taskId) => {
         try {
             setLoading(true)
-            await axios.put(`http://localhost:9000/api/tasks/${taskId}`, { status: status }).then(response => {
+            await axios.put(`https://pmsbackend-orpin.vercel.app/api/tasks/${taskId}`, { status: status }).then(response => {
                 console.warn('update stutus:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())
@@ -171,7 +171,7 @@ const AllTasks = ({ proid, projectTasks }) => {
 
         try {
             setLoading(true)
-            await axios.put(`http://localhost:9000/api/tasks/${selectedTask._id}`, { ...updatedValues, deadline: deadlineDate }).then(response => {
+            await axios.put(`https://pmsbackend-orpin.vercel.app/api/tasks/${selectedTask._id}`, { ...updatedValues, deadline: deadlineDate }).then(response => {
                 console.warn('update taskss:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())

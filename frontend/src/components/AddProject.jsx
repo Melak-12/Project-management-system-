@@ -24,7 +24,7 @@ const AddProject = () =>{
     
         try {
             setLoading(true)
-            await axios.post('http://localhost:9000/api/projects/create/', updatedValues).then(response => {
+            await axios.post('https://pmsbackend-orpin.vercel.app/api/projects/create/', updatedValues).then(response => {
                 console.warn('API Response add projects:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())

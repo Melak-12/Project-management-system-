@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const fetchTaskData = createAsyncThunk("taskData/fetch", async () => {
   try {
-    const response = await axios.get("http://localhost:9000/api/tasks/");
+    const response = await axios.get("https://pmsbackend-orpin.vercel.app/api/tasks/");
     const data = response.data;
     console.log("fetched tasks in asyncthunk",data);
 
@@ -19,7 +19,7 @@ export const fetchTaskData = createAsyncThunk("taskData/fetch", async () => {
 
 export const fetchprojectData = createAsyncThunk("projectData/fetch", async () => {
   try {
-    const response = await axios.get("http://localhost:9000/api/projects/");
+    const response = await axios.get("https://pmsbackend-orpin.vercel.app/api/projects/");
     const data = response.data;
     console.log("fetch project in asyncthunk ",data);
     return data
@@ -29,7 +29,7 @@ export const fetchprojectData = createAsyncThunk("projectData/fetch", async () =
 });
 export const fetchIssueData = createAsyncThunk("issueData/fetch", async () => {
   try {
-    const response = await axios.get("http://localhost:9000/api/issues/");
+    const response = await axios.get("https://pmsbackend-orpin.vercel.app/api/issues/");
     const data = response.data;
     console.log("fetch issue in asyncthunk ",data);
     return data
@@ -39,7 +39,7 @@ export const fetchIssueData = createAsyncThunk("issueData/fetch", async () => {
 });
 export const fetchUserData = createAsyncThunk("userData/fetch", async (email) => {
   try {
-    const response = await axios.get(`http://localhost:9000/api/users/getme?email=${email}`);
+    const response = await axios.get(`https://pmsbackend-orpin.vercel.app/api/users/getme?email=${email}`);
     const userData = response.data;
     // console.log("fetch data from thunk ",userData);
 

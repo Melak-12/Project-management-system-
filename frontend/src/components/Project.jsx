@@ -37,7 +37,7 @@ const Project = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:9000/api/users/getme');
+                const response = await axios.get('https://pmsbackend-orpin.vercel.app/api/users/getme');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -96,7 +96,7 @@ const Project = () => {
 
         try {
             //
-            await axios.delete(`http://localhost:9000/api/tasks/${id}`).then(response => {
+            await axios.delete(`https://pmsbackend-orpin.vercel.app/api/tasks/${id}`).then(response => {
                 console.warn('API delete data:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())
@@ -137,7 +137,7 @@ const Project = () => {
             }, {});
 
         try {
-            await axios.put(`http://localhost:9000/api/projects/${selectedTask._id}`, { ...updatedValues, deadline: deadlineDate }).then(response => {
+            await axios.put(`https://pmsbackend-orpin.vercel.app/api/projects/${selectedTask._id}`, { ...updatedValues, deadline: deadlineDate }).then(response => {
                 console.warn('update projects:', response.data);
                 dispatch(fetchTaskData())
                 dispatch(fetchprojectData())
