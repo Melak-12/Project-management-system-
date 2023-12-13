@@ -144,7 +144,7 @@ const Dashboard = () => {
 
                     <Link to={'/alltasks'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-green-200 font-sans'>
                         <div>
-                            <span>{tasks.length}</span>
+                            <span>{0}</span>
                             <br />
                             <span className='text-sm font-bold text-green-700'>Completed Projects</span>
                         </div>

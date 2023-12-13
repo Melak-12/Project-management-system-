@@ -64,8 +64,10 @@ const Tasks = ({ proid, projectTasks }) => {
         return (
             <div className=''>
 
-                {users.map((user) => (
-                    <p className='cursor-pointer' onClick={() => assignTask(user._id, id)} key={user.id}>{user.name}</p>
+                {users.map((user) => (<>
+                    <p className='cursor-pointer bg-slate-300 text-green-600 rounded-md px-2' onClick={() => assignTask(user._id, id)} key={user.id}>{user.name}</p>
+                   <br/>
+                </>
                 ))}
             </div>
         );
