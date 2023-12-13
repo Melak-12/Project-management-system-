@@ -81,7 +81,7 @@ function App() {
                         {!isAdmin && <Badge size="small" count={notfication}>
                           <Avatar size="small" className='text-green-500' icon={<MessageOutlined />} />
                         </Badge>}
-                        {
+                        {isAdmin&&
                           <Link to={'/createproject'} className=' bg-slate-700 text-green-500 px-3 rounded-md'>Add new Project</Link>
                         }
                         <Link className='shadow-lg ring-1 mx-3 ring-red-500 text-red-300 hover:text-slate-400 hover:bg-slate-700 px-2 rounded-md bg-slate-700'
