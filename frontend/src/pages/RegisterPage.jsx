@@ -52,8 +52,10 @@ const RegisterPage = () => {
     <div className='my-4 pt-4'>
                 {loading&&<Loading/>}
 
-        <span className='text-slate-700 text-2xl pt-44'>Register </span>
-        <hr className='h-2 w-full bg-green-600 rounded-lg mb-5' />
+        <span className='text-slate-700 text-2xl pt-44 px-4'>Register </span>
+        <hr className='h-2 w-full bg-green-600 rounded-b-lg mb-5' />
+        <div className='-ml-28 flex justify-center '>
+
         <Form
             name="basic"
             labelCol={{
@@ -71,8 +73,8 @@ const RegisterPage = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
-            className=' text-center'
-        >
+            className=' mt-12 flex flex-col text-center justify-center w-2/3'
+            >
             <Form.Item
                 label="Name"
                 name="name"
@@ -142,6 +144,7 @@ const RegisterPage = () => {
                 </Button>
             </Form.Item>
         </Form>
+        </div>
         <span className='flex justify-center text-sm text-slate-500 font-thin'>are you already registered ? <Link to="/login">Login</Link></span>
     </div>
 

@@ -95,16 +95,6 @@ const Dashboard = () => {
 
                 </div>
                 <div className='flex flex-col w-1/3 overflow-y-scroll h-full'>
-                    <Link to={'/'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-slate-100 font-sans'>
-                        <div>
-                            <span>{projects.length}</span>
-                            <br />
-                            <span className='text-sm font-bold text-green-800'>Total projects</span>
-                        </div>
-                        <div>
-                            <span className='flex justify-end text-slate-400 text-2xl disabled '><DatabaseOutlined /></span>
-                        </div>
-                    </Link>
 
                     <Link to={'/alltasks'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-slate-300 font-sans'>
                         <div>
@@ -119,6 +109,17 @@ const Dashboard = () => {
                             <span className='flex justify-end text-slate-400 text-2xl disabled '><SnippetsOutlined /></span>
                         </div>
                     </Link>
+                    <Link to={'/'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-slate-100 font-sans'>
+                        <div>
+                            <span>{projects.length}</span>
+                            <br />
+                            <span className='text-sm font-bold text-green-800'>Total projects</span>
+                        </div>
+                        <div>
+                            <span className='flex justify-end text-slate-400 text-2xl disabled '><DatabaseOutlined /></span>
+                        </div>
+                    </Link>
+
                     <span className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-red-100 font-sans'>
                         <div>
                             <span>5</span>
@@ -129,7 +130,7 @@ const Dashboard = () => {
                             <span className='flex justify-end text-red-600 text-2xl disabled '><WarningOutlined /></span>
                         </div>
                     </span>
-                    {isAdmin&&<Link to={'/users'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-slate-300 font-sans'>
+                    {isAdmin && <Link to={'/users'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-slate-300 font-sans'>
                         <div>
                             <span>{users.length}</span>
                             <br />
@@ -140,6 +141,20 @@ const Dashboard = () => {
                             <span className='flex justify-end text-slate-600 text-2xl disabled '><TeamOutlined /><TeamOutlined /></span>
                         </div>
                     </Link>}
+
+                    <Link to={'/alltasks'} className='p-5 flex flex-row justify-between  m-3 shadow-lg rounded-md bg-green-200 font-sans'>
+                        <div>
+                            <span>{tasks.length}</span>
+                            <br />
+                            <span className='text-sm font-bold text-green-700'>Completed Projects</span>
+                        </div>
+                        <Progress type="circle" size="small" status='success' percent={100} />
+
+                        <div>
+
+                            <span className='flex justify-end text-slate-400 text-2xl disabled '><SnippetsOutlined /></span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

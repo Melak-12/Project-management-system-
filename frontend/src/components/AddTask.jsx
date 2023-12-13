@@ -68,6 +68,8 @@ const AddTask = () => {
             {loading&&<Loading/>}
             <span className='text-slate-700 text-2xl pt-44'>Add Task</span>
             <hr className='h-2 w-full bg-green-600 rounded-b-lg mb-5' />
+            <div className='-ml-28 flex justify-center '>
+
             <Form
                 name="basic"
                 labelCol={{
@@ -85,8 +87,8 @@ const AddTask = () => {
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
-                className=' text-center'
-            >
+                className=' mt-12 flex flex-col text-center justify-center w-2/3'
+                >
                 <Form.Item
                     label="Task title"
                     name="title"
@@ -149,6 +151,7 @@ const AddTask = () => {
                     </Button>
                 </Form.Item>
             </Form>
+        </div>
         </div>
 
     )

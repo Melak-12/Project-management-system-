@@ -52,7 +52,7 @@ const Tasks = ({ proid, projectTasks }) => {
                 taskId,
             });
 
-            alert('Task assigned successfully:', response.data);
+            console.warn('Task assigned successfully:', response.data);
         } catch (error) {
             console.error('Error assigning task:', error);
         } finally {

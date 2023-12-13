@@ -59,10 +59,10 @@ function App() {
   return (
     <>
       <Router>
-        <div className="">
+        <div className="md:block hidden">
           <Layout style={{ minHeight: '100vh' }} className=''>
 
-           {isUser&& <SideBar />}
+            {isUser && <SideBar />}
             <Layout className=''>
 
               {/* <Header className='bg-slate-800' > */}
@@ -85,17 +85,17 @@ function App() {
                           <Link to={'/createproject'} className=' bg-slate-700 text-green-500 px-3 rounded-md'>Add new Project</Link>
                         }
                         <Link className='shadow-lg ring-1 mx-3 ring-red-500 text-red-300 hover:text-slate-400 hover:bg-slate-700 px-2 rounded-md bg-slate-700'
-                          onClick={logOutUser}> <LoginOutlined />
+                          onClick={logOutUser}> <LoginOutlined className='px-2' />
                           LogOut
                         </Link>
                       </> :
                       <>
-                        <Link className='shadow-lg text-slate-300 hover:text-slate-400 hover:bg-slate-700 px-2 mx-3 rounded-md bg-green-700'
-                          to={'/login'}> <LoginOutlined />
+                        <Link className='shadow-lg text-slate-400 hover:text-slate-400 hover:bg-green-700 px-2 mx-3 rounded-md bg-slate-700'
+                          to={'/login'}> <LoginOutlined className='px-2' />
                           Login
                         </Link>
-                        <Link className='shadow-lg text-slate-300 hover:text-slate-400 hover:bg-slate-700 px-2 rounded-md bg-green-700'
-                          to={'/register'}> <LoginOutlined />
+                        <Link className='shadow-lg text-slate-400 hover:text-slate-400 hover:bg-green-700 px-2 rounded-md bg-slate-700'
+                          to={'/register'}> <LoginOutlined className='px-2' />
                           Register
                         </Link>
                       </>
@@ -127,6 +127,11 @@ function App() {
               </div>
             </Layout>
           </Layout>
+        </div>
+        <div className='md:hidden block'>
+          Please use your computer to see the project!
+          <br/>
+          <i>will be done for mobile soon!</i>
         </div>
       </Router>
     </>

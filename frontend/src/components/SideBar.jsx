@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DatabaseOutlined, HomeOutlined, CheckCircleOutlined,UserOutlined, ContainerOutlined, FolderAddOutlined, LogoutOutlined, WarningOutlined, TeamOutlined, } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../redux/features/authSlice';
 import axios from 'axios';
@@ -89,6 +89,7 @@ const SideBar = ({ handleMenu }) => {
                     <Item key='11' icon={<LogoutOutlined />} className='text-red-500 hover:text-red-400 '>
                         <span onClick={logOutUser} className=' hover:text-red-400'>Log out</span>
                     </Item>
+
                 </Menu>
             </div>
         </Sider>
