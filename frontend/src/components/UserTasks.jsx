@@ -1,4 +1,4 @@
-import { Radio } from 'antd';
+import { Input, Popover, Radio } from 'antd';
 import axios from 'axios';
 
 import React, { useEffect, useState } from 'react'
@@ -14,14 +14,36 @@ const UserTasks = ({ proid, projectTasks }) => {
     // const projects = useSelector((state) => state.projects.projectValue.projects) || '';
     const tasks = useSelector((state) => state.tasks.taskValue.tasks) || '';
     const userTasks = useSelector((state) => state.user.userValue.assignedTasks) || [];
-      const [loading, setLoading] = useState(false)
-
+    const [loading, setLoading] = useState(false)
+    const [issueText, setIssueText] = useState({});
 
     useEffect(() => {
         const userr = localStorage.getItem('email');
         dispatch(fetchUserData(userr));
     }, [dispatch]);
 
+    const [open, setOpen] = useState(false);
+    const hide = () => {
+        setOpen(false);
+    };
+    const handleOpenChange = (newOpen) => {
+        setOpen(newOpen);
+    };
+    const [popoverVisible, setPopoverVisible] = useState({});
+    const hidePopover = (taskId) => {
+        setPopoverVisible({ ...popoverVisible, [taskId]: false });
+    };
+    const handlePopoverOpenChange = (taskId, newOpen) => {
+        setPopoverVisible({ ...popoverVisible, [taskId]: newOpen });
+    };
+    const handleTextAreaChange = (taskId, value) => {
+        setIssueText({ ...issueText, [taskId]: value });
+    };
+    const handleSubmitIssue = (taskId) => {
+        const text = issueText[taskId]; // Text from the specific task's textarea
+        console.log(`Task ID: ${taskId}, Issue: ${text}`);
+        // You can perform further actions with the issue text here
+    };
     const sendStatus = async (status, taskId) => {
         try {
             setLoading(true)
@@ -77,6 +99,7 @@ const UserTasks = ({ proid, projectTasks }) => {
                                 <td className='mb-2 p-3' >Description</td>
                                 <td className='mb-2 p-3' >Deadline</td>
                                 <td className='mb-2 p-3' >Status</td>
+                                <td className='mb-2 p-3 text-red-500' >Issue</td>
                             </tr>
                             {userTasksData
                                 && userTasksData
@@ -97,6 +120,28 @@ const UserTasks = ({ proid, projectTasks }) => {
 
 
                                                 </td>
+                                                <td className='mb-2 p-3 text-md font-medium cursor-pointer' >
+
+                                                    <Popover
+                                                        content={
+                                                            <>
+                                                                <Input.TextArea onChange={(e) => handleTextAreaChange(task._id, e.target.value)} />
+                                                                <div className="flex justify-around m-2">
+                                                                    <span className='cursor-pointer' onClick={() => hidePopover(task._id)}>Close</span>
+                                                                    <span className='bg-green-500 text-white rounded-sm px-2 cursor-pointer' onClick={() => handleSubmitIssue(task._id)}>Submit</span>
+                                                                </div>
+
+                                                            </>
+                                                        }
+                                                        title="Write the issue you got!"
+                                                        trigger="click"
+                                                        visible={popoverVisible[task._id]}
+                                                        onVisibleChange={(newOpen) => handlePopoverOpenChange(task._id, newOpen)}
+                                                    >
+                                                        <span type="primary">found issue</span>
+                                                    </Popover>
+                                                </td>
+
                                             </tr>
 
                                         </>
