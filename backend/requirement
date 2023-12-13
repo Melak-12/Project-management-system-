@@ -1,0 +1,21 @@
+
+TODO
+ You will be building a task management system to manage tasks, to-do lists, 
+ and projects to get the best out of your team and your business.
+
+Your Task management system should at least include:
+
+1. Adding project
+2. Tracking task/project progress
+3. Delegating work to team members / Distribute Tasks Across Your Team 
+4. Setting deadlines
+5. Track issues 
+6. Adjusting work schedules
+7. Notification (When users assigned a task)
+
+Tech Stacks
+- React using ant design
+- Nestjs for backend
+- Postgres for database
+
+Deadline: Dec 14, 2023
