@@ -170,7 +170,7 @@ const Project = () => {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-    const isAdmin = localStorage.getItem('isAdmin') === "true"
+    const isAdmin = localStorage.getItem('isAdmin')==="true"
 
     if (!isAdmin) {
         return <Navigate to="/userTasks"></Navigate>
@@ -219,7 +219,7 @@ const Project = () => {
                         <div>
 
                             <h2 className='text-slate-600 text-md font-bold my-2'>Progress</h2>
-                            <Progress type="circle" size="small" status='success' percent={project.progress} />
+                            <Progress type="circle" size="small" status='normal' percent={project.progress} />
 
                             <hr />
                         </div>
