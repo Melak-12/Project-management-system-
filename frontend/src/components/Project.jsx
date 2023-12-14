@@ -209,9 +209,14 @@ const Project = () => {
                         <div>
 
                             <h2 className='text-slate-600 text-md font-bold my-2'>deadline</h2>
-                            <span className='text-yellow-600 text-sm px-1 bg-yellow-100 font-thin'>
+                            {countdown==='Deadline passed!'?
+                            <span className='text-red-600 text-sm px-1 bg-red-100 font-thin'>
                                 {countdown}
-                            </span>
+                            </span>:
+                            <span className='text-yellow-600 text-sm px-1 bg-yellow-100 font-thin'>
+                            {countdown}
+                        </span>
+                            }
 
                             {/* <span className='text-slate-500 font-thin text-sm'>{project.deadline ? new Date(project.deadline).toISOString().slice(0, 10) : ''}</span> */}
                             <hr />
