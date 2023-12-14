@@ -230,6 +230,7 @@ const Tasks = ({ proid, projectTasks }) => {
                                 <td>Deadline</td>
                                 {isAdmin && <td>Action</td>}
                                 <td>Status</td>
+                                <td>Issue</td>
                             </tr>
                             {projectTasks
                                 && projectTasks.filter(task => isAdmin ? true : userTasks.includes(task._id))
@@ -260,6 +261,7 @@ const Tasks = ({ proid, projectTasks }) => {
 
 
                                                 </td>
+                                                
                                             </tr>
                                             <Modal
                                                 title="Update Task"
