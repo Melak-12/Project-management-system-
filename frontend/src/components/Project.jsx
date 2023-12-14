@@ -209,7 +209,7 @@ const Project = () => {
                         <div>
 
                             <h2 className='text-slate-600 text-md font-bold my-2'>deadline</h2>
-                            <span className='text-yellow-600 text-sm font-thin'>
+                            <span className='text-yellow-600 text-sm px-1 bg-yellow-100 font-thin'>
                                 {countdown}
                             </span>
 
