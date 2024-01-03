@@ -129,19 +129,13 @@ const RegisterPage = () => {
                     >
                         <Input type='password' />
                     </Form.Item>
-                    {/* <Form.Item
-                label="Role"
-                name="progress"
-
-            >
-                <Input />
-            </Form.Item> */}
+         
                     <Form.Item
-                        label="Are you admin?"
+                        label={<span className='text-slate-600 italic  '>are you  owner(PM)?</span>}
                         name="isAdmin"
                         valuePropName="checked"
                     >
-                        <Checkbox className='flex '/>
+                        <Checkbox className='flex ' />
                     </Form.Item>
                     <Form.Item
                         wrapperCol={{
