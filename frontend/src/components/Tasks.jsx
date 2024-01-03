@@ -239,7 +239,7 @@ const Tasks = ({ proid, projectTasks }) => {
                                             <tr key={task._id} className='py-10 mb-10 text-slate-500' style={{ textAlign: "start", margin: 32 }}>
                                                 <td>{task.title}</td>
                                                 <td>{task.description}</td>
-                                                <td>{task.deadline ? new Date(task.deadline).toISOString().slice(0, 10) : ''}</td>
+                                                <td>{task.deadline ?  new Date(task.deadline).toISOString().slice(0, 10) : ''}</td>
                                                 <td>
 
                                                     <i className={`mx-2 ${getUserNameById(task._id) === 'task is not Assigned' ? 'bg-red-200 text-red-500 ' : 'bg-green-200 text-green-500 rounded-md font-thin px-1'}`}> {getUserNameById(task._id)}</i>
