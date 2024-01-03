@@ -12,7 +12,6 @@ const RegisterPage = () => {
     const dispatch = useDispatch()
     const onFinish = async (values) => {
         // const { id } = useParams()
-        const isAdmin = values.isAdmin || false;
 
         const { deadline } = values;
         const deadlineDate = deadline?._d || new Date(deadline);
@@ -129,9 +128,9 @@ const RegisterPage = () => {
                     >
                         <Input type='password' />
                     </Form.Item>
-         
+
                     <Form.Item
-                        label={<span className='text-slate-600 italic  '>are you  owner(PM)?</span>}
+                        label={<span className='text-yellow-600 italic  '>Click if you are  owner(PM)?</span>}
                         name="isAdmin"
                         valuePropName="checked"
                     >
