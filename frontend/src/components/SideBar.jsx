@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DatabaseOutlined, HomeOutlined, CheckCircleOutlined,UserOutlined, ContainerOutlined, FolderAddOutlined, LogoutOutlined, WarningOutlined, TeamOutlined, } from '@ant-design/icons';
+import { DatabaseOutlined, HomeOutlined, CheckCircleOutlined, UserOutlined, ContainerOutlined, FolderAddOutlined, LogoutOutlined, WarningOutlined, TeamOutlined, } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,12 @@ const SideBar = ({ handleMenu }) => {
     const isUser = localStorage.getItem("email")
     const [users, setUsers] = useState([]);
 
+
+    // const [collapsed, setCollapsed] = useState(false);
+    const [clickedItem, setClickedItem] = useState(null);
+    const handleMenuClick = (item) => {
+        setClickedItem(item);
+    };
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -64,20 +70,20 @@ const SideBar = ({ handleMenu }) => {
                             <Link className='hover:text-green-500' to="/createproject">Add project</Link>
                         </Item>
 
-                        {(projects&& isAdmin) && projects.map((project) => (<Item className='hover:bg-slate-700' key='4' icon={<ContainerOutlined />}>
+                        {(projects && isAdmin) && projects.map((project) => (<Item className='hover:bg-slate-700' key={project._id} icon={<ContainerOutlined />}>
                             <Link className='hover:text-slate-400' to={`/project/${project._id}`}>
                                 {project.name.toUpperCase()}
                             </Link>
                         </Item>))}
                     </SubMenu>
                         <SubMenu key='sub2' icon={<TeamOutlined />} title='Users'>
-                          {(users&& isAdmin) && users.map((user) => (<Item className='hover:bg-slate-700' key='4' icon={<UserOutlined />}>
-                            <Link className='hover:text-slate-400' to={`/detail/${user._id}`}>
-                                {user.name}
-                            </Link>
-                        </Item>))}
+                            {(users && isAdmin) && users.map((user) => (<Item className='hover:bg-slate-700' key={user._id} icon={<UserOutlined />}>
+                                <Link className='hover:text-slate-400' to={`/detail/${user._id}`}>
+                                    {user.name}
+                                </Link>
+                            </Item>))}
                         </SubMenu></>}
-                        
+
                     <Item className='hover:bg-slate-700' key='10' icon={<CheckCircleOutlined />}>
                         {isAdmin ? <Link className='hover:text-slate-400' to="/alltasks">Tasks</Link> :
                             <Link className='hover:text-slate-400' to="/usertasks">Tasks</Link>
